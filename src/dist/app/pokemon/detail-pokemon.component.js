@@ -21,11 +21,14 @@ var DetailPokemonComponent = /** @class */ (function () {
         this.pokemon = null;
     }
     DetailPokemonComponent.prototype.ngOnInit = function () {
+        var _this = this;
         //Recupérer liste de pokemons
-        this.pokemons = this._pokemonService.getPokemons();
+        this._pokemonService.getPokemons()
+            .subscribe(function (x) { return _this.pokemons = x; });
         var id = +this.route.snapshot.paramMap.get('id'); // + indique que c'est un Number
         // recup un pokémon par son ID (boucle FOR, IF)
-        this.pokemon = this._pokemonService.getPokemon(id);
+        this._pokemonService.getPokemon(id)
+            .subscribe(function (x) { return _this.pokemon = x; });
         /*
         * Peut estre remplacé par un filtre:
         this.pokemons.filter(x => x.id == id)[0];
@@ -39,6 +42,11 @@ var DetailPokemonComponent = /** @class */ (function () {
     DetailPokemonComponent.prototype.goEdit = function (pokemon) {
         var link = ['/pokemon/edit', pokemon.id];
         this.router.navigate(link);
+    };
+    DetailPokemonComponent.prototype.goDelete = function (id) {
+        var _this = this;
+        this._pokemonService.deletePokemon(id)
+            .subscribe(function () { return _this.goBack(); });
     };
     DetailPokemonComponent = __decorate([
         core_1.Component({

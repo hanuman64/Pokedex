@@ -9,12 +9,17 @@ import { ListPokemonComponent } from './pokemon/list-pokemon.component';
 import { DetailPokemonComponent } from './pokemon/detail-pokemon.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { PokemonModule } from './pokemon/pokemon.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './pokemon/in-memory-data.service';
 
 
 
 @NgModule({
     imports: [
         BrowserModule,
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
         PokemonModule,
         AppRoutingModule
     ],

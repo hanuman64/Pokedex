@@ -33,7 +33,7 @@ var PokemonModule = /** @class */ (function () {
                 border_card_directive_1.BorderCardDirective,
                 pokemon_type_color_pipe_1.PokemonTypeColorPipe,
                 pokemon_form_component_1.PokemonFormComponent,
-                edit_pokemon_component_1.EditPokemonComponent
+                edit_pokemon_component_1.EditPokemonComponent,
             ],
             providers: [
                 pokemon_service_1.PokemonService

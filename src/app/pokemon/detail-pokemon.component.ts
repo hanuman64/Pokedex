@@ -17,11 +17,13 @@ export class DetailPokemonComponent implements OnInit {
 ​
     ngOnInit(): void {
         //Recupérer liste de pokemons
-        this.pokemons = this._pokemonService.getPokemons();
+        this._pokemonService.getPokemons()
+            .subscribe(x => this.pokemons = x);
 
         let id = +this.route.snapshot.paramMap.get('id');// + indique que c'est un Number
         // recup un pokémon par son ID (boucle FOR, IF)
-        this.pokemon =this._pokemonService.getPokemon(id);
+        this._pokemonService.getPokemon(id)
+            .subscribe(x => this.pokemon = x);
         /*
         * Peut estre remplacé par un filtre:    
         this.pokemons.filter(x => x.id == id)[0];     
@@ -37,5 +39,11 @@ export class DetailPokemonComponent implements OnInit {
     goEdit(pokemon: Pokemon): void {
         let link = ['/pokemon/edit', pokemon.id];
         this.router.navigate(link);
+    }
+
+    goDelete(id: number): void {
+        this._pokemonService.deletePokemon(id)
+            .subscribe(() => this.goBack());
+        
     }
 }

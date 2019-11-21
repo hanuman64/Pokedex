@@ -17,9 +17,12 @@ var ListPokemonComponent = /** @class */ (function () {
         this.router = router;
         this._pokemonService = _pokemonService;
         this.pokemons = null;
+        this.pokemon = null;
     }
     ListPokemonComponent.prototype.ngOnInit = function () {
-        this.pokemons = this._pokemonService.getPokemons();
+        // this.pokemons = this._pokemonService.getPokemons();
+        var _this = this;
+        this._pokemonService.getPokemons().subscribe(function (x) { return _this.pokemons = x; }); //souscrit au service de connexion à la DB contenu dans GetPokemons() dans pokemon-service.ts
     };
     ListPokemonComponent.prototype.selectPokemon = function (pokemon) {
         console.log('Vous avez selectionné ' + pokemon.name);

@@ -54,9 +54,12 @@ var PokemonFormComponent = /** @class */ (function () {
     };
     // La méthode appelée lorsque le formulaire est soumis.
     PokemonFormComponent.prototype.onSubmit = function () {
+        var _this = this;
         console.log("Submit form !");
-        var link = ['/pokemon', this.pokemon.id];
-        this.router.navigate(link);
+        this._pokemonsService.updatePokemon(this.pokemon).subscribe(function () {
+            var link = ['/pokemon', _this.pokemon.id];
+            _this.router.navigate(link);
+        });
     };
     __decorate([
         core_1.Input(),

@@ -23,7 +23,8 @@ import { EditPokemonComponent } from "./edit-pokemon.component";
         BorderCardDirective,
         PokemonTypeColorPipe,
         PokemonFormComponent,
-        EditPokemonComponent
+        EditPokemonComponent,
+        
     ],
     providers: [
         PokemonService
