@@ -15,6 +15,9 @@ var pokemon_module_1 = require("./pokemon/pokemon.module");
 var http_1 = require("@angular/common/http");
 var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
 var in_memory_data_service_1 = require("./pokemon/in-memory-data.service");
+var login_routing_module_1 = require("./login-routing.module");
+var login_component_1 = require("./login.component");
+var forms_1 = require("@angular/forms");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -23,13 +26,16 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpClientModule,
+                forms_1.FormsModule,
                 angular_in_memory_web_api_1.HttpClientInMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService, { dataEncapsulation: false }),
                 pokemon_module_1.PokemonModule,
+                login_routing_module_1.LoginRoutingModule,
                 app_routing_module_1.AppRoutingModule
             ],
             declarations: [
                 // Components + Directives + Pipes
                 app_component_1.AppComponent,
+                login_component_1.LoginComponent,
                 page_not_found_component_1.PageNotFoundComponent
             ],
             bootstrap: [app_component_1.AppComponent]

@@ -9,6 +9,8 @@ import { PokemonService } from "./pokemon.service";
 import { FormsModule } from "@angular/forms";
 import { PokemonFormComponent } from "./pokemon-form.component";
 import { EditPokemonComponent } from "./edit-pokemon.component";
+import { AuthGuard } from "../auth-guard.service";
+import { AuthService } from "../auth.service";
 
 
 @NgModule({
@@ -23,11 +25,12 @@ import { EditPokemonComponent } from "./edit-pokemon.component";
         BorderCardDirective,
         PokemonTypeColorPipe,
         PokemonFormComponent,
-        EditPokemonComponent,
-        
+        EditPokemonComponent
     ],
     providers: [
-        PokemonService
+        PokemonService,
+        AuthService,
+        AuthGuard
     ]
 })
 export class PokemonModule {  }

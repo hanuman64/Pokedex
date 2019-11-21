@@ -37,7 +37,7 @@ var DetailPokemonComponent = /** @class */ (function () {
     DetailPokemonComponent.prototype.goBack = function () {
         //Méthode qui permet de revenir sur la page /pokemons
         //this.router
-        this.router.navigate(['/pokemons']);
+        this.router.navigate(['/pokemon/all']);
     };
     DetailPokemonComponent.prototype.goEdit = function (pokemon) {
         var link = ['/pokemon/edit', pokemon.id];
